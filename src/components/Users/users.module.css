@@ -1,0 +1,59 @@
+svg{
+    cursor: pointer;
+}
+.userWrapper{
+    max-width: 1440px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+a{
+    font-family: 'Proxima Nova';
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 143%;
+    text-align: center;
+    color: #8189a3;
+}
+.wrapperContent{
+    display: flex;
+    width: 357px;
+    height: 314px;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 24px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+}
+.wrapperContent:hover{
+    transform: scale(1.1);
+}
+.wrapperContact{
+    display: flex;
+    flex-direction: column;
+}
+.name{
+    cursor: pointer;
+    font-family: 'Proxima Nova';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 125%;;
+    color: #262c40;
+    margin: 24px 0px 24px 24px;
+}
+.wrapperForContact{
+    display: flex;
+    gap: 14px;
+    margin-left: 24px;
+    margin-bottom: 14px;
+}
+.userPopUpWrapper{
+    width: 500px;
+    height: 460px;
+    display: block;
+    position: absolute;
+    z-index: 2;
+    border: 1px solid black;
+}
