@@ -43,7 +43,7 @@ const PopUp: React.FC<PopupProps> = ({user,onClose}) => {
                                 <span className={styles.wrapperPopUpSubTitle}>Телефон:</span>
                             </div>
                             <div className={styles.wrapperPopUpTitleInfoData}>
-                                <a>{user.phone}</a>
+                            <a className={styles.wrapperPopUpText} href={`tel:${user.phone}`}>{user.phone}</a>
                             </div>
                         </div>
                         <div className={styles.wrapperPopUpString}>
@@ -51,7 +51,7 @@ const PopUp: React.FC<PopupProps> = ({user,onClose}) => {
                                 <span className={styles.wrapperPopUpSubTitle}>Почта:</span>
                             </div>
                             <div className={styles.wrapperPopUpTitleInfoData}>
-                                <a>{user.email}</a>
+                            <a className={styles.wrapperPopUpText} href={`mailto:${user.email}`} >{user.email}</a>
                             </div>
                         </div>
                         <div className={styles.wrapperPopUpString}>

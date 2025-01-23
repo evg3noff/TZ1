@@ -45,6 +45,11 @@
     line-height: 150%;
     color: #8189a3;
     text-align: start;
+    -webkit-line-clamp: 2;
+	line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 .wrapperPopUpContainer{
     display: flex;
