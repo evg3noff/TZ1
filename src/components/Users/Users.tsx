@@ -1,7 +1,7 @@
 import styles from './users.module.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import PopUp from '../PupUpWindow/PopUp';
+import PopUp from '../PopUpWindow/PopUp';
 
 interface User{
     id: number;
@@ -11,7 +11,7 @@ interface User{
     address: string;
     hire_date: string;
     position_name: string;
-    departmen: string;
+    department: string;
 }
 interface UsersProps {
     searchQuery: string;
@@ -19,7 +19,6 @@ interface UsersProps {
 const Users: React.FC<UsersProps> = ({ searchQuery }) => {
     const [Data, setData] = useState<User[]>([]);
     const [Error, setError] = useState<string | null>(null);
-    const [loading, setLoading] = useState<boolean>(false);
     const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
     const handleCardClick = (user: User) => {
@@ -31,17 +30,13 @@ const Users: React.FC<UsersProps> = ({ searchQuery }) => {
     };
 
     const fetchData = async (term: string) => {
-        setLoading(true);
         try {
             const response = await axios.get<User[]>('http://localhost:3000', {
                 params: { term },
             });
-            console.log(response.data);
             setData(response.data);
         } catch (err: any) {
             setError(err.message || 'Ошибка при загрузке данных');
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -51,17 +46,11 @@ const Users: React.FC<UsersProps> = ({ searchQuery }) => {
         }, 300);
         return () => clearTimeout(timeoutId);
     }, [searchQuery]);
-    const filteredUsers = Data.filter(user => {
-        return user.name.toLowerCase().includes(searchQuery.toLowerCase());
-    });
+
 
     const names = Data.map((user) => user.name);
     const number = Data.map((user) => user.phone);
     const mail = Data.map((user) => user.email)
-    const address = Data.map((user) => user.address);
-    const date = Data.map((user) => user.hire_date);
-    const post = Data.map((user) => user.position_name);
-    const unit = Data.map((user) => user.departmen);
     let renderContact = [];
     for (let countData = 0; countData < Data.length; countData++){
         renderContact.push(
@@ -78,7 +67,7 @@ const Users: React.FC<UsersProps> = ({ searchQuery }) => {
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fillRule="evenodd" clipRule="evenodd" d="M23 7V17C23 17.5523 22.5523 18 22 18L2 18C1.44772 18 0.999999 17.5523 0.999999 17L1 7C1 6.89068 1.01754 6.78546 1.04996 6.687L10.4171 14.351C11.338 15.1045 12.6624 15.1045 13.5833 14.351L22.9501 6.68727C22.9825 6.78565 23 6.89078 23 7ZM22.1891 6.01786L12.9501 13.5771C12.3975 14.0292 11.6029 14.0292 11.0504 13.5771L1.81123 6.01779C1.87236 6.00611 1.93547 6 2 6L22 6C22.0647 6 22.1279 6.00614 22.1891 6.01786ZM22 5C23.1046 5 24 5.89543 24 7V17C24 18.1046 23.1046 19 22 19L2 19C0.895429 19 0 18.1046 0 17V7C0 5.89543 0.895432 5 2 5H22Z" fill="#432EAB" />
                             </svg>
-                            <a href="mailto:yysavchenk@mail.ru" className={styles.ContactMail}>{mail[countData]}</a>
+                            <a href={"mailto:${mail[countData]"} className={styles.ContactMail}>{mail[countData]}</a>
                         </div>
                     </div>
                 </div>
