@@ -1,7 +1,7 @@
 import styles from './users.module.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import PopUp from '../PopUpWindow/popUp';
+import PopUp from '../PopUpWindow/PopUp';
 
 interface User{
     id: number;

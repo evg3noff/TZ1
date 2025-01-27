@@ -13,7 +13,7 @@ interface PopupProps {
     onClose: () => void;
   }
 
-const popUp: React.FC<PopupProps> = ({user, onClose}) => {
+const PopUp: React.FC<PopupProps> = ({user,onClose}) => {
     const popupRef = useRef<HTMLDivElement | null>(null);
    useEffect(() => {
         const handleOutsideClick = (event: MouseEvent) => {
@@ -90,4 +90,4 @@ const popUp: React.FC<PopupProps> = ({user, onClose}) => {
     </>
 }
 
-export default popUp;
+export default PopUp;
