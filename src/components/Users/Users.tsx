@@ -1,7 +1,7 @@
 import styles from './users.module.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import PopUp from '../PopUpWindow/PopUp';
+import PopUp from '../PopUpWindow/popUp';
 
 interface User{
     id: number;
@@ -18,7 +18,6 @@ interface UsersProps {
 }
 const Users: React.FC<UsersProps> = ({ searchQuery }) => {
     const [Data, setData] = useState<User[]>([]);
-    const [Error, setError] = useState<string | null>(null);
     const [selectedUser, setSelectedUser] = useState<User | null>(null);
 
     const handleCardClick = (user: User) => {
@@ -36,7 +35,7 @@ const Users: React.FC<UsersProps> = ({ searchQuery }) => {
             });
             setData(response.data);
         } catch (err: any) {
-            setError(err.message || 'Ошибка при загрузке данных');
+            (err.message || 'Ошибка при загрузке данных');
         }
     };
 

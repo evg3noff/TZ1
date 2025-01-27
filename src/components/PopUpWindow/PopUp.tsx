@@ -1,5 +1,5 @@
 import styles from './popUp.module.css';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef} from 'react';
 interface PopupProps {
     user: {id: number;
             name: string;
@@ -13,7 +13,7 @@ interface PopupProps {
     onClose: () => void;
   }
 
-const PopUp: React.FC<PopupProps> = ({user,onClose}) => {
+const popUp: React.FC<PopupProps> = ({user, onClose}) => {
     const popupRef = useRef<HTMLDivElement | null>(null);
    useEffect(() => {
         const handleOutsideClick = (event: MouseEvent) => {
@@ -90,4 +90,4 @@ const PopUp: React.FC<PopupProps> = ({user,onClose}) => {
     </>
 }
 
-export default PopUp;
+export default popUp;
